@@ -25,15 +25,15 @@ public class MemberJoinAction implements Action{
 		dto.setMemberPw(request.getParameter("memberPw"));
 		dto.setMemberName(request.getParameter("memberName"));
 		dto.setMemberBirthday(request.getParameter("memberBirthday"));
-		dto.setMemberEmail(request.getParameter("memberEmail1") + "@" + request.getParameter("memberEmail2"));
+		dto.setMemberEmail(request.getParameter("memberEmail") + "@" + request.getParameter("memberEmail2"));
 		dto.setMemberEmailGet(request.getParameter("memberEmailGet"));
 		dto.setMemberMobile(request.getParameter("memberMobile"));
 		dto.setMemberMobileGet(request.getParameter("memberMobileGet"));
 		dto.setMemberMale(request.getParameter("memberMale"));
 		dto.setMemberPhone(request.getParameter("memberPhone"));
-		dto.setMemberZipcode(request.getParameter("memberZipcode1")+" - " + request.getParameter("memberZipcode2"));
-		dto.setMemberAddr1(request.getParameter("addr1"));
-		dto.setMemberAddr2(request.getParameter("addr2"));
+		dto.setMemberZipcode(request.getParameter("memberZipcode"));
+		dto.setMemberAddr1(request.getParameter("memberAddr1"));
+		dto.setMemberAddr2(request.getParameter("memberAddr2"));
 		dto.setMemberAdmin(0);
 		
 		memberDao.insertMember(dto);
