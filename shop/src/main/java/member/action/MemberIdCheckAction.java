@@ -1,14 +1,17 @@
 package member.action;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import controller.CommandAction;
 import member.db.MemberDAO;
 
-public class MemberIdCheckAction implements Action{
+public class MemberIdCheckAction implements CommandAction{
+
+	
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		ActionForward forward = new ActionForward();
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
 		String id = request.getParameter("memberId");
 		
@@ -18,9 +21,7 @@ public class MemberIdCheckAction implements Action{
 		request.setAttribute("id", id);
 		request.setAttribute("check", check);
 		
-		forward.setRedirect(false);
-		forward.setPath("./member/member_idchk.jsp");
-		return forward;
+		return "/member/member_idchk.jsp";
 	}
 
 }

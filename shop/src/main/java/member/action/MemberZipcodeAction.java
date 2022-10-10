@@ -6,15 +6,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.CommandAction;
 import member.db.MemberDAO;
 
-public class MemberZipcodeAction implements Action{
+public class MemberZipcodeAction implements CommandAction{
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("utf-8");
-		ActionForward forward = new ActionForward();
 		MemberDAO memberDao = new MemberDAO();
 		List zipcodeList = new ArrayList();
 		
@@ -22,9 +21,7 @@ public class MemberZipcodeAction implements Action{
 		zipcodeList = memberDao.searchZipcode(searchdong);
 		
 		request.setAttribute("zipcodeList", zipcodeList);
-		forward.setRedirect(false);
-		forward.setPath("./member/member_zipcode.jsp");
-		return forward;
+		return "/member/member_zipcode.jsp";
 	}
 
 }

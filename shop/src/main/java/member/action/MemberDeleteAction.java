@@ -6,21 +6,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CommandAction;
 import member.db.MemberDAO;
 
-public class MemberDeleteAction implements Action{
+public class MemberDeleteAction implements CommandAction{
+
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		ActionForward forward = new ActionForward();
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		
 		if(id == null || id.isBlank()) {
-			forward.setRedirect(true);
-			forward.setPath("./MemberLogin.me");
-			return forward;
+			return "/member/main.jsp";
 		}
 		
 		MemberDAO memberDao = new MemberDAO();
@@ -32,9 +30,7 @@ public class MemberDeleteAction implements Action{
 			if(check == 1) {
 				session.invalidate();
 				
-				forward.setRedirect(false);
-				forward.setPath("./member/member_out_ok.jsp");
-				return forward;
+				return "/member/member_out_ok.jsp";
 			}else {
 				response.setContentType("text/html; charset=utf-8");
 				PrintWriter out = response.getWriter();

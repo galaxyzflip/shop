@@ -6,25 +6,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.CommandAction;
 import member.db.MemberBean;
 import member.db.MemberDAO;
 
 
-public class MemberModifyAction_2 implements Action{
+public class MemberModifyAction_2 implements CommandAction{
+
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		request.setCharacterEncoding("utf-8");
+	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+request.setCharacterEncoding("utf-8");
 		
-		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		
 		if(id == null || id.isBlank()) {
-			forward.setRedirect(true);
-			forward.setPath("./MemberLogin.me");
-			return forward;
+			return "/MemberLogin.me";
 		}
 		
 		MemberDAO memberDao = new MemberDAO();
@@ -38,7 +36,7 @@ public class MemberModifyAction_2 implements Action{
 		dto.setMemberMobile(request.getParameter("member_mobile"));
 		dto.setMemberMobileGet(request.getParameter("member_mobile_get"));
 		dto.setMemberPhone(request.getParameter("member_phone"));
-		dto.setMemberZipcode(request.getParameter("member_zipcode1")+" - " + request.getParameter("member_zipcode2"));
+		dto.setMemberZipcode(request.getParameter("member_zipcode"));
 		dto.setMemberAddr1(request.getParameter("member_addr1"));
 		dto.setMemberAddr2(request.getParameter("member_addr2"));
 		
@@ -51,11 +49,7 @@ public class MemberModifyAction_2 implements Action{
 		out.println("</script>");
 		out.close();
 		
-		forward.setRedirect(false);
-		forward.setPath("./MemberModifyAction_1.me");
-		return forward;
-		
-		
+		return "/shop/MemberModifyAction_1.me";
 		
 	}
 

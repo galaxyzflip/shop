@@ -41,6 +41,8 @@ public class MemberDAO {
 					+ " member_email_get,member_mobile, member_mobile_get, member_phone, member_zipcode, member_addr1, "
 					+ " member_addr2, member_admin, member_join_date) "
 					+ " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?, sysdate)";
+			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setString(1, mb.getMemberId());
 			pstmt.setString(2, mb.getMemberPw());
 			pstmt.setString(3, mb.getMemberName());
@@ -55,7 +57,7 @@ public class MemberDAO {
 			pstmt.setString(12, mb.getMemberAddr1());
 			pstmt.setString(13, mb.getMemberAddr2());
 			pstmt.setInt(14, mb.getMemberAdmin());
-			pstmt.executeLargeUpdate();
+			pstmt.executeUpdate();
 			
 			return true;
 		
@@ -291,9 +293,11 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				String dbMobile = rs.getString("member_mobilde");
+				String dbMobile = rs.getString("member_mobile");
 				
 				if(dbMobile.equals(mobile)) {
+					member.setMemberId(rs.getString("member_id"));
+					member.setMemberPw(rs.getString("member_pw"));
 					return member;
 				}
 			}

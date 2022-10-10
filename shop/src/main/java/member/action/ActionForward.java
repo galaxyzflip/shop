@@ -1,24 +1,22 @@
 package member.action;
 
 public class ActionForward {
-
-	private boolean isRedirect = false;
-	private String path = null;
-
-	public boolean isRedirect() {
+	private boolean isRedirect=false;
+	private String path=null;
+	
+	public boolean isRedirect(){
 		return isRedirect;
 	}
-
-	public void setRedirect(boolean isRedirect) {
-		this.isRedirect = isRedirect;
-	}
-
-	public String getPath() {
+	
+	public String getPath(){
 		return path;
 	}
-
-	public void setPath(String path) {
-		this.path = path;
+	
+	public void setRedirect(boolean b){
+		isRedirect=b;
 	}
-
+	
+	public void setPath(String string){
+		path=string;
+	}
 }
