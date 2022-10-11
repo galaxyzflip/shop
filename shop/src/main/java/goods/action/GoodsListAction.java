@@ -28,6 +28,8 @@ public class GoodsListAction implements CommandAction{
 		
 		item=request.getParameter("item");
 		
+		price = request.getParameter("searchPrice");
+		
 		itemLists = goodsDao.itemList(item, page, price);
 		count = goodsDao.getCount(item);
 			

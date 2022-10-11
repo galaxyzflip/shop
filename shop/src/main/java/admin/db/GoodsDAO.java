@@ -241,9 +241,6 @@ public class GoodsDAO {
 			}else if(searchPrice.equals("7~10")) {
 				firstPrice = 70000;
 				secondPrice = 99999;
-			}else {
-				firstPrice = 0;
-				secondPrice = 0;
 			}
 		}
 		
@@ -252,7 +249,7 @@ public class GoodsDAO {
 			StringBuffer sql = new StringBuffer();
 			
 			sql.append("select * from (select goods_num, goods_category, goods_name, goods_content, ");
-			sql.append(" goods_price, goods_image, goods_best, ruwnum r from goods where ");
+			sql.append(" goods_price, goods_image, goods_best, goods_size, goods_color,goods_amount,goods_date, rownum r from goods where ");
 			
 			if(item.equals("newItem")) {
 				sql.append(" goods_date >= goods_date - 7 ");
@@ -261,35 +258,55 @@ public class GoodsDAO {
 				sql.append(" goods_best = 1 ");
 				
 			}else {
-				sql.append(" goods_category = ?");
+				sql.append(" goods_category = ? ");
 			}
 			
-			if(searchPrice != null || !searchPrice.isBlank()) {
-				sql.append(" and (goods_price between ? and ? )");
+			if(searchPrice != null) {
+				sql.append(" and (goods_price between ? and ? ) ");
+				
 			}
+				
+			
+			 
 			sql.append(" order by goods_num desc)");
 			sql.append(" where r >= ? and r <= ?");
 			pstmt = conn.prepareStatement(sql.toString(), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			
-			if(item.equals("newItem") || item.equals("hitItem")) {
-				pstmt.setInt(1, firstPrice);
-				pstmt.setInt(2, secondPrice);
-				pstmt.setInt(3, startNum);
-				pstmt.setInt(4, endNum);
-				
+			if(searchPrice != null) {
+				if(item.equals("newItem") || item.equals("hitItem")) {
+					pstmt.setInt(1, firstPrice);
+					pstmt.setInt(2, secondPrice);
+					pstmt.setInt(3, startNum);
+					pstmt.setInt(4, endNum);
+					
+				}else {
+					pstmt.setString(1, item);
+					pstmt.setInt(2, firstPrice);
+					pstmt.setInt(3, secondPrice);
+					pstmt.setInt(4, startNum);
+					pstmt.setInt(5, endNum);
+					
+				}
+				rs = pstmt.executeQuery();
+			
 			}else {
-				pstmt.setString(1, item);
-				pstmt.setInt(2, firstPrice);
-				pstmt.setInt(3, secondPrice);
-				pstmt.setInt(4, startNum);
-				pstmt.setInt(5, endNum);
-				
+				if(item.equals("newItem") || item.equals("hitItem")) {
+					
+					pstmt.setInt(1, startNum);
+					pstmt.setInt(2, endNum);
+					
+				}else {
+					pstmt.setString(1, item);
+					pstmt.setInt(2, startNum);
+					pstmt.setInt(3, endNum);
+					
+				}
+				rs = pstmt.executeQuery();
 			}
-			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				GoodsBean goods = getRs(rs);
-				StringTokenizer st = new StringTokenizer(rs.getString("goodsImage"), ",");
+				StringTokenizer st = new StringTokenizer(rs.getString("goods_Image"), ",");
 				String firstimg = st.nextToken();
 				goods.setGoodsImage(firstimg);
 				
@@ -333,7 +350,7 @@ public class GoodsDAO {
 		StringBuffer sql = new StringBuffer();
 		
 		if(direction.equals("next")) {
-			sql.append("select goods_num, goods_catagory, goods_image, goods_name from goods ");
+			sql.append("select goods_num, goods_category, goods_image, goods_name from goods ");
 			sql.append(" where goods_num > ? and ");
 			
 			if(item.equals("newItem")) {

@@ -25,8 +25,8 @@
 		
 		var isBuy = confirm("구매하시겠습니까?");
 		
-		if(isbuy == true){
-			goodsForm.action="OrderStart.or";
+		if(isBuy == true){
+			goodsForm.action="/OrderStart.or";
 			goodsForm.submit();
 			
 		}else{
@@ -118,7 +118,7 @@
 								<tr>
 									<td rowspan="2">수량&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 									<td width="60" rowspan="2">
-										<<input type="text" name="amount" style="text-align: right" value="1" size="4">
+										<input type="text" name="amount" style="text-align: right" value="1" size="4">
 									</td>
 									
 									<td valign="bottom">
@@ -146,11 +146,11 @@
 											<option value="">크기를 선택하세요</option>	
 											<option value="">-------------</option>
 											
-											<c:forToken var="size" items="${itemArray.goodsSize }" delims=",">
+											<c:forTokens var="size" items="${itemArray.goodsSize }" delims=",">
 												<option value="${fn:trim(size) }">
 													${fn:trim(size) }
 												</option>
-											</c:forToken>	
+											</c:forTokens>	
 										</select>
 									</td>
 								</tr>
@@ -254,7 +254,7 @@
 			<table width="200" align="center">
 				<tr align="left">
 					<td colspan="3">
-						<c:forEach var="itemimg" items="${requestScope.contenImage }">
+						<c:forEach var="itemimg" items="${requestScope.contentImage }">
 							<img src="./upload/${fn:trim(itemimg) }"/>
 						</c:forEach>
 					</td>

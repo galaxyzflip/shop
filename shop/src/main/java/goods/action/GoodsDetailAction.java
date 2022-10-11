@@ -80,17 +80,21 @@ public class GoodsDetailAction implements CommandAction{
 			imgLists.add(st.nextToken());
 		}
 		
-		String mainImage = (String)imgLists.get(1);
+		String mainImage = (String)imgLists.get(0);
 		List contentImage = new ArrayList();
 		
-		for(int i=2; i<imgLists.size(); i++) {
-			contentImage.add(imgLists.get(i));
+		for(int i=1; i<imgLists.size(); i++) {
+		
+			if(! (imgLists.get(i).equals("null") ) ) {
+				contentImage.add(imgLists.get(i));
+				
+			}
 		}
 		
 		request.setAttribute("itemArray", itemArray);
 		request.setAttribute("category", item);
 		request.setAttribute("mainImage", mainImage);
-		request.setAttribute("contenImage", contentImage);
+		request.setAttribute("contentImage", contentImage);
 		request.setAttribute("prevPage", isPrevPage);
 		request.setAttribute("nextPage", isNextPage);
 		request.setAttribute("price", price);

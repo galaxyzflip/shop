@@ -13,7 +13,7 @@
 <script>
 	function searchPrice(item, searchPrice){
 		if(searchPrice != "all"){
-			window.location.href="GoodsList.go?item"+item+"&page=1&searchPrice="+searchPrice;
+			window.location.href="GoodsList.go?item="+item+"&page=1&searchPrice="+searchPrice;
 		}else{
 			window.location.href="GoodsList.go?item="+item+"&page=1";
 		}

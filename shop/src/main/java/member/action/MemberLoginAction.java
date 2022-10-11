@@ -28,11 +28,11 @@ public class MemberLoginAction implements CommandAction{
 			if(memberDao.isAdmin(id)) {
 				
 				/* path = "./GoodsList.ag"; */
-				path = "/member/test.jsp";
+				path = "./AdminGoodsList.ag";
 				
 			}else {
 				/* return "./GoodsList.go?item=new_item"; */
-				path = "/member/test.jsp";
+				path = "/GoodsList.go?item=newItem";
 			}
 				
 		}else if(check == 0) {

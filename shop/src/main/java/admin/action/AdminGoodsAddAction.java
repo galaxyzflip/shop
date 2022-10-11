@@ -26,7 +26,8 @@ public class AdminGoodsAddAction implements CommandAction {
 		int check = 0;
 		
 		realPath = request.getRealPath(savePath);
-		realPath = "C:\\Users\\pigcs\\git\\shop\\shop\\src\\main\\webapp\\upload";
+		/* realPath = "C:\\Users\\pigcs\\git\\shop\\shop\\src\\main\\webapp\\upload"; */
+		realPath = "C:\\Users\\EZEN\\git\\shop\\shop\\src\\main\\webapp\\upload";
 		
 		
 		List saveFiles = new ArrayList();

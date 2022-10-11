@@ -8,7 +8,9 @@
 </head>
 <body>
 
-sdff
+<script>
+	history.go(-1);
+</script>
 
 </body>
 </html>
