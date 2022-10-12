@@ -142,6 +142,7 @@ public class MemberDAO {
 			sql = "select * from member where member_id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				member = getRs(rs);
@@ -161,7 +162,7 @@ public class MemberDAO {
 	
 	public MemberBean getRs(ResultSet rs) {
 		
-		MemberBean member = null;
+		MemberBean member = new MemberBean();
 		
 		try {
 			member.setMemberId(rs.getString("member_id"));
@@ -169,8 +170,8 @@ public class MemberDAO {
 			member.setMemberBirthday(rs.getString("member_birthday"));
 			member.setMemberEmail(rs.getString("member_email"));
 			member.setMemberEmailGet(rs.getString("member_email_get"));
-			member.setMemberMobile(rs.getString("member_mobide"));
-			member.setMemberMobileGet(rs.getString("member_mobide_get"));
+			member.setMemberMobile(rs.getString("member_mobile"));
+			member.setMemberMobileGet(rs.getString("member_mobile_get"));
 			member.setMemberPhone(rs.getString("member_phone"));
 			member.setMemberZipcode(rs.getString("member_zipcode"));
 			member.setMemberAddr1(rs.getString("member_addr1"));

@@ -26,7 +26,7 @@
 		var isBuy = confirm("구매하시겠습니까?");
 		
 		if(isBuy == true){
-			goodsForm.action="/OrderStart.or";
+			goodsForm.action="./OrderStart.or";
 			goodsForm.submit();
 			
 		}else{
@@ -52,8 +52,8 @@
 		var isBuy = confirm("장바구니에 저장하시겠습니까?");
 		
 		if(isBuy == true){
-			basketForm.action="BasgetAdd.ba";
-			basgetForm.submit();
+			basketForm.action="./BasketAdd.ba";
+			basketForm.submit();
 			
 		}else{
 			return;

@@ -29,7 +29,7 @@ public class BasketDAO {
 		try {
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context)initCtx.lookup("java:comp/env");
-			DataSource ds = (DataSource)envCtx.lookup("jdbc/OrackeDB");
+			DataSource ds = (DataSource)envCtx.lookup("jdbc/OracleDB");
 			conn = ds.getConnection();
 		
 		}catch(SQLException ex) {
@@ -73,7 +73,7 @@ public class BasketDAO {
 				if(rs1.next()) {
 					goods.setGoodsName(rs1.getString("goods_name"));
 					goods.setGoodsPrice(rs1.getInt("goods_price"));
-					goods.setGoodsImage(rs.getString("goods_image"));
+					goods.setGoodsImage(rs1.getString("goods_image"));
 					
 				}else {
 					return null;

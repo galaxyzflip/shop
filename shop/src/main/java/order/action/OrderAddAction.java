@@ -51,7 +51,7 @@ public class OrderAddAction implements CommandAction{
 		order.setOrderTradeType("온라인입금");
 		order.setOrderTradePayer(request.getParameter("orderTradePayer"));
 		
-		String orderType = request.getParameter("orerType");
+		String orderType = request.getParameter("orderType");
 		
 		if(orderType.equals("goods")) {
 			basket.setBasketGoodsNum(Integer.parseInt(request.getParameter("goodsNum")));

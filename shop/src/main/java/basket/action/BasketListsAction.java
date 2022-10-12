@@ -28,7 +28,7 @@ public class BasketListsAction implements CommandAction{
 		request.setAttribute("basketLists", basketLists);
 		request.setAttribute("goodsLists", goodsLists);
 		
-		return "./goods_order/goods_basket.jsp";
+		return "/goods_order/goods_basket.jsp";
 	}
 
 }

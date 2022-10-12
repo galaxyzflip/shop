@@ -29,14 +29,14 @@
 					<input type="hidden" name="goodsPrice" value="${orderInfoLists[5] }">
 				</c:if>
 				
-				<input type="hidden" name="memberId" value="${member.memgerId }">
+				<input type="hidden" name="memberId" value="${member.memberId }">
 				<!-- 주문 상세내역 -->
-				<TABLE WIDTH="80%">
+				<table width="80%">
 					<tr>
-						<p align="left"><b><font size="2">주문 상세내역</font></b>
-					</p>
+						<td><b><font size="2">주문 상세내역</font></b></td>
+					</tr>
 					
-					<tr align="cetner" height="20">
+					<tr align="center" height="20">
 						<td style="font-family:Tahoma; font-size: 8pt; font-weight: bold;">사진</td>
 						<td style="font-family:Tahoma; font-size: 8pt; font-weight: bold;">상품명</td>
 						<td style="font-family:Tahoma; font-size: 8pt; font-weight: bold;">수량</td>
@@ -52,7 +52,7 @@
 					<c:if test="${orderType eq 'goods' }">
 						<tr align="center" height="20">
 							<td style="font-family: Tahoma; font-size: 7pt;">
-								<img src=".upload/${orderInfoLists[6] }" width="50" height="50">
+								<img src="./upload/${orderInfoLists[6] }" width="50" height="50">
 							</td>
 							<td style="font-family: Tahoma; font-size: 8pt;">${orderInfoLists[1] }</td>
 							<td style="font-family: Tahoma; font-size: 8pt;">${orderInfoLists[2] }</td>
@@ -62,13 +62,17 @@
 						</tr>
 						
 						<tr>
-							<td style="backgroud-color: #f0f0f0; height: 1px;" colspan="6">
-						</td>
+							<td style="backgroud-color: #f0f0f0; height: 1px;" colspan="6"></td>
+						</tr>
 					</c:if>
 					
+					<!-- 장바구니 구매 -->
 					<c:if test="${orderType ne 'goods' }">
-						<c:forEach var="basket" begin="0" end="${fn:length(basketLists)-1}">
+						<c:forEach var="i" begin="0" end="${fn:length(basketLists)-1}">
 							<tr align="center" height="20">
+								<td style="font-family: Tahoma; font-size: 7pt;">
+									<img src="./upload/${fn:split(goodsLists[i].goodsImage,',')[0] }" width="50" height="50">
+								</td>
 								<td style="font-family: Tahoma; font-size: 8pt;">${goodsLists[i].goodsName }</td>
 								<td style="font-family: Tahoma; font-size: 8pt;">${basketLists[i].basketGoodsAmount }</td>
 								<td style="font-family: Tahoma; font-size: 8pt;">${basketLists[i].basketGoodsColor }</td>
@@ -93,8 +97,8 @@
 					</tr>
 					
 					<tr>
-						<td><b><font size="2">주문자 정보</font></b>
-					</td>
+						<td><b><font size="2">주문자 정보</font></b></td>
+					</tr>
 					
 					<tr>
 						<td style="font-family: Tahoma; font-size: 8pt;" width="80" height="24" bgcolor="f7f7f7">이름</td>

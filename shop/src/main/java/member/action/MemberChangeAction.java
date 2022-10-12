@@ -58,7 +58,6 @@ public class MemberChangeAction implements CommandAction {
 
 		}
 
-
 		if (path == null) {
 			System.out.println("잘못된 명령입니다.");
 			throw new RuntimeException("change경로이상");

@@ -33,7 +33,13 @@ public class BasketAddAction implements CommandAction{
 		
 		basketDao.basketAdd(id, num, amount, size, color);
 		
-		return "./BasketList.ba?item="+item+"&gr_goods_num="+gr_goods_num+"&isItem="+isItem;
+		request.setAttribute("item", item);
+		request.setAttribute("gr_goods_num", gr_goods_num);
+		request.setAttribute("isItem", isItem);
+				
+		
+		/* return "./BasketList.ba"; */
+		return "./goods_order/goods_basketPro.jsp";
 	}
 
 	

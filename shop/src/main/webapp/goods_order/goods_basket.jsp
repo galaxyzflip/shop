@@ -39,15 +39,15 @@
 						</tr>
 						
 						<c:if test="${!empty basketLists}">
-							<c:if test="${fn:length(basketLists }">
-								<c:forEach var="i" begin="1" end="${fn:length(basketLists) }">
+							<c:if test="${fn:length(basketLists) != 0 }">
+								<c:forEach var="i" begin="0" end="${fn:length(basketLists) -1 }">
 									<tr align="center">
 										<td><font size="2">${basketLists[i].basketNum }</font></td>
-										<td><font size="2"><img src="./upload/${fn:split(goodsLists[i].goodsImage,'-')}" width="50" height="50"></font></td>
+										<td><font size="2"><img src="./upload/${fn:split(goodsLists[i].goodsImage,',')[0]}" width="50" height="50"></font></td>
 										<td><font size="2">${goodsLists[i].goodsName }</font></td>
-										<td><font size="2">${basketLists[i].goodsAmount }</font></td>
+										<td><font size="2">${basketLists[i].basketGoodsAmount }</font></td>
 										<td><font size="2">${goodsLists[i].goodsPrice }</font></td>
-										<td><font size="2"><a href="BasketDelete.ba?num=${basketLists{i].basketNum }" onclick="return confirm('취소하시겠습니까')">취소</a></font></td>
+										<td><font size="2"><a href="BasketDelete.ba?num=${basketLists[i].basketNum }" onclick="return confirm('취소하시겠습니까')">취소</a></font></td>
 									</tr>
 								</c:forEach>
 							</c:if>
@@ -76,7 +76,7 @@
 								</c:if>
 								
 								<c:if test="${empty item }">
-									<a href="./GoodsLists.go?item=newItem">[계속 쇼핑하기]</a>
+									<a href="./GoodsList.go?item=newItem">[계속 쇼핑하기]</a>
 								</c:if>
 					
 								<c:if test="${!empty item }">

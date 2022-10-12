@@ -350,7 +350,7 @@ public class GoodsDAO {
 		StringBuffer sql = new StringBuffer();
 		
 		if(direction.equals("next")) {
-			sql.append("select goods_num, goods_category, goods_image, goods_name from goods ");
+			sql.append("select * from goods ");
 			sql.append(" where goods_num > ? and ");
 			
 			if(item.equals("newItem")) {
@@ -364,7 +364,7 @@ public class GoodsDAO {
 				sql.append(" and (goods_price between ? and ? ) ");
 			}
 		}else if(direction.equals("prev")) {
-			sql.append(" select goods_num, goods_category, goods_image, goods_name from goods ");
+			sql.append(" select * from goods ");
 			sql.append("  where goods_num < ? and ");
 			
 			if(item.equals("newItem")) {

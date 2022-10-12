@@ -56,9 +56,9 @@ public class OrderStartAction implements CommandAction{
 		
 		MemberDAO memberDao = new MemberDAO();
 		MemberBean member = memberDao.getMembers(id);
-		request.setAttribute("membe", member);
+		request.setAttribute("member", member);
 		
-		return "./goods_order/goods_buy.jsp";
+		return "/goods_order/goods_buy.jsp";
 		
 	}
 

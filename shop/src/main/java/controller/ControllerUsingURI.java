@@ -103,9 +103,14 @@ public class ControllerUsingURI extends HttpServlet{
 			throw new ServletException (e);
 		}
 		
+		if(view == null) {
+			
+			
+		}else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
+			dispatcher.forward(request, response);
+		}
 		
-		  RequestDispatcher dispatcher = request.getRequestDispatcher(view);
-		  dispatcher.forward(request, response);
 		 
 		
 	}

@@ -1,5 +1,6 @@
 package basket.action;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,9 @@ public class BasketDeleteAction implements CommandAction{
 		
 		basketDao.basketRemove(Integer.parseInt(num));
 
-		return "./BasketList.ba";
+		response.sendRedirect("./BasketList.ba");
+		
+		return null; 
 	}
 
 }

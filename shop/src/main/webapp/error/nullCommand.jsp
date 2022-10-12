@@ -8,6 +8,10 @@
 </head>
 <body>
 
+http://localhost:9005/shop/MemberLogin.me<br>
+
+
+
 잘못된 요청입니다.<br>
 commandHandlerURI.properties 파일을 참고하여<br> 
 경로 및 클래스 파일들을 확인해주시기 바랍니다. <br>
