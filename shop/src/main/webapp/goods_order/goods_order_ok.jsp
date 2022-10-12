@@ -47,8 +47,16 @@
 				<tr>
 					<td style="backgroud-color: #f0f0f0; height: 1px;" colspan="6"></td>
 				</tr>
+				
+				
+				<tr>
+					<td style="backgroud-color: #f0f0f0; height: 1px;" colspan="6" align="center">
+						<a href="./GoodsList.go?item=newItem">상품목록으로</a>
+					</td>
+				</tr>
 			
 			</table>
+			
 		</td>
 	</tr>
 

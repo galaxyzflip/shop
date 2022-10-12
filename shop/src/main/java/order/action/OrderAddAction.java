@@ -73,9 +73,8 @@ public class OrderAddAction implements CommandAction{
 			
 		orderDao.addOrder(order, goodsVector);
 		
-		
-		
-		return "./OrderOk.or";
+		return "/goods_order/goods_order_ok.jsp";
+		/* return "./OrderOk.or"; */
 	}
 	
 	

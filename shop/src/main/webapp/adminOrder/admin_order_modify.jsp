@@ -29,7 +29,7 @@
 						</tr>
 						
 						<tr>
-							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" geight="24 bgcolor="#f7f7f7">운송장(등기)번호</td>
+							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24" bgcolor="#f7f7f7">운송장(등기)번호</td>
 							<td width="320" height="24">
 								<c:if test="${!empty order.orderTransNum }">
 									<input type="text" name="transportNum" size="15" maxlength="20" value="${ order.orderTransNum}">
@@ -47,7 +47,7 @@
 						</td>
 						
 						<tr>
-							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24 bgcolor="#f7f7f7">주문번호</td>
+							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24" bgcolor="#f7f7f7">주문번호</td>
 							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;">${order.orderTradeNum }</td>
 						</tr>
 						
@@ -56,7 +56,7 @@
 						</td>
 						
 						<tr height="20">
-							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24 bgcolor="#f7f7f7" conspan="2">상품정보</td>
+							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24" bgcolor="#f7f7f7" conspan="2">상품정보</td>
 						</tr>
 						
 						<tr>
@@ -64,7 +64,7 @@
 						</td>
 						
 						<tr>
-							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24 bgcolor="#f7f7f7">상품이름</td>
+							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24" bgcolor="#f7f7f7">상품이름</td>
 							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;">${order.orderGoodsName }</td>
 						</tr>
 						
@@ -162,7 +162,7 @@
 						
 						<tr height="23">
 							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;" width="130" height="24" bgcolor="#f7f7f7">이메일주소</td>
-							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;">${order.orderReceiveEmail }</td>
+							<td style="font-family: Tahoma; font-size: 8pt; font-weight: bold;">${orderMember.memberEmail }</td>
 						</tr>
 						
 						<tr>

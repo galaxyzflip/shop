@@ -66,7 +66,7 @@ public class BasketDAO {
 				basket.setBasketDate(rs.getDate("basket_date"));
 				
 				sql = "select * from goods where goods_num = ?";
-				pstmt = conn.prepareCall(sql);
+				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, basket.getBasketGoodsNum());
 				rs1 = pstmt.executeQuery();
 				

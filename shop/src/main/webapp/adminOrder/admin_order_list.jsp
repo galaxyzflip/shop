@@ -23,6 +23,8 @@
 					</td>
 				</tr>
 				
+				<!--  주문목록 -->
+				
 				<tr align="center" height="20">
 					<td style="font-family:Tahoma;font-size:8pt; font-weight:bold">주문번호</td>
 					<td style="font-family:Tahoma;font-size:8pt; font-weight:bold">주문자</td>
@@ -64,6 +66,7 @@
 					</tr>
 				</c:forEach>
 				
+				<!-- 페이징 -->
 				<tr align="center" height="20">
 					<td colspan="7" style="font-family:Tahoma; font-size:10pt;">
 						<c:if test="${nowPage <= 1 }"> [이전] &nbsp;</c:if>
@@ -74,8 +77,8 @@
 							<c:if test="${a != nowPage }"><a href="./AdminOrderLists.ao?page=${a }">[${a }]</a></c:if>
 						</c:forEach>
 						
-						<c:if test="${nowPage >= maxPage }"> [다음]</c:if>
-						<c:if test="${nowPage < maxPage }"><a href="./AdminOrderLists.ao?page=${nowPage + 1 }">[다음]</a></c:if> 
+						<c:if test="${nowPage >= endPage }">&nbsp; [다음]</c:if>
+						<c:if test="${nowPage < endPage }"><a href="./AdminOrderLists.ao?page=${nowPage + 1 }">[다음]</a></c:if> 
 					</td>
 				</tr>
 			</table>

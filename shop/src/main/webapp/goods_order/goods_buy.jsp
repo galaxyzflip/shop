@@ -24,8 +24,8 @@
 					<input type="hidden" name="goodsNum" value="${orderInfoLists[0] }">
 					<input type="hidden" name="goodsName" value="${orderInfoLists[1] }">
 					<input type="hidden" name="goodsAmount" value="${orderInfoLists[2] }">
-					<input type="hidden" name="goodsColor" value="${orderInfoLists[3] }">
-					<input type="hidden" name="goodsSize" value="${orderInfoLists[4] }">
+					<input type="hidden" name="goodsSize" value="${orderInfoLists[3] }">
+					<input type="hidden" name="goodsColor" value="${orderInfoLists[4] }">
 					<input type="hidden" name="goodsPrice" value="${orderInfoLists[5] }">
 				</c:if>
 				

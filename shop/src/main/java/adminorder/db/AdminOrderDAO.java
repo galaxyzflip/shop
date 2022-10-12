@@ -131,6 +131,11 @@ public class AdminOrderDAO {
 			order.setOrderTradeNum(rs.getString("order_trade_num"));
 			order.setOrderTransNum(rs.getString("order_trans_num"));
 			order.setOrderGoodsNum(rs.getInt("order_goods_num"));
+			
+			order.setOrderGoodsSize(rs.getString("order_goods_size"));
+			order.setOrderGoodsColor(rs.getString("order_goods_color"));
+			
+			order.setOrderGoodsName(rs.getString("order_goods_name"));
 			order.setOrderGoodsAmount(rs.getInt("order_goods_amount"));
 			order.setOrderMemberId(rs.getString("order_member_id"));
 			order.setOrderReceiveName(rs.getString("order_receive_name"));
@@ -155,7 +160,7 @@ public class AdminOrderDAO {
 
 	public boolean modifyOrder(OrderBean order) {
 		
-		String sql = "update goods_order set order_stran_num=?, order_memo = ?, order_status = ?"
+		String sql = "update goods_order set order_trans_num=?, order_memo = ?, order_status = ?"
 				+ " where order_num = ?";
 		int result = 0;
 		

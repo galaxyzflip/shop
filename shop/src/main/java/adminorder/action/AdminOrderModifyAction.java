@@ -31,7 +31,7 @@ public class AdminOrderModifyAction implements CommandAction{
 			return null;
 		}
 		
-		response.sendRedirect("./AdinOrderLists.ao");
+		response.sendRedirect("./AdminOrderList.ao");
 		
 		return null;
 	}
