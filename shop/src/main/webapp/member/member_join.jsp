@@ -6,8 +6,86 @@
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
 
-<script>
 
+<script>
+function check(){
+	
+	var forms = document.getElementById("joinform");
+	
+	if(forms.memberName.value==""){
+		alert("이름을 제대로 입력해 주세요");
+		forms.memberName.focus();
+		return false;
+	}
+	
+	if(forms.memberId.value==""){
+		alert("아이디를 제대로 입력해 주세요");
+		forms.memberId.focus();
+		return false;
+	}
+	
+	if(forms.memberPw.value==""){
+		alert("비밀번호를 제대로 입력해 주세요");
+		forms.memberPw1.focus();
+		return false;
+	}
+	
+	if(forms.memberPw2.value==""){
+		alert("비밀번호확인을 제대로 입력해 주세요");
+		forms.memberPw2.focus();
+		return false;
+	}
+	
+	if(forms.memberPw.value != forms.memberPw2.value){
+		alert("비밀번호를 다르게 입력하셨습니다.");
+		forms.memberPw.focus();
+		return false;
+	}
+	
+	if(forms.memberMale.value == ""){
+		alert("성별을 입력해주세요.");
+		forms.memberMale.focus();
+		return false;
+	}
+	
+	if(forms.memberEmail1.value=="" || forms.memberEmail2.value){
+		alert("이메일을 제대로 입력해 주세요");
+		forms.memberEmail1.focus();
+		return false;
+	}
+	
+	if(forms.memberZipcode.value==""){
+		alert("우편번호를 입력해 주세요");
+		forms.memberZipcode.focus();
+		return false;
+	}
+	
+	if(forms.memberAddr1.value=="" || forms.memberAddr2.value==""){
+		alert("이메일을 제대로 입력해 주세요");
+		forms.memberAddr1.focus();
+		return false;
+	}
+	
+	if(forms.memberMobile.value==""){
+		alert("휴대폰번호를 입력해 주세요");
+		forms.memberMobile.focus();
+		return false;
+	}
+	
+	joinform.submit();
+}
+
+function openConfirmId(joinform){
+	var id = joinform.memberId.value;
+	var url="./MemberIdCheckAction.me?memberId="+joinform.memberId.value;
+	
+	if(id.length == 0){
+		alert("아이디를 입력하세요.");
+		joinform.memberId.focus();
+		return false;
+	}
+	open(url, "confirm", "toolbar=no,location=no,status=no,menuvar=no,scrollbars=no,resizable=no,width=400,height=200");
+}
 
 
 function sample6_execDaumPostcode() {
@@ -58,23 +136,39 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 
+
 </script>
-<!-- <script language="JavaScript" src="script.js"></script> -->
+
+
 <script language="JavaScript" src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
 
 </head>
 <body>
+
+
 
 <table width="960" cellspacind="0" cellpadding="0" align="center">
 
 	<tr>
 		<td colspan="2">
 		
-		<form name="joinform" action="/shop/MemberJoinAction.me" method="post" onsubmit="return check()">
+		<form id="joinform" name="joinform" action="/shop/MemberJoinAction.me" method="post">
 		
 		<p align="center">
 			<table border="1" width="80%" height="80">
 			
+				<tr>
+					<td width="17%" bgcolor="#f5f5f5">
+						<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;이름</font>
+					</td>
+					
+					<td>&nbsp;&nbsp;&nbsp;
+						<input type="text" name="memberName" size="10" maxlength="15"/>
+					</td>
+				</tr>
+				
 				<tr>
 					<td width="17%" bgcolor="#f5f5f5">
 						<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;아이디</font>
@@ -97,7 +191,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">비밀번호 확인</font>
 					</td>
 					
@@ -115,7 +209,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">생일</font>
 					</td>
 					
@@ -125,12 +219,12 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">성별</font>
 					</td>
 					<td>
-						<select name="male">
-							<option>-선택-</option>
+						<select name="memberMale">
+							<option value="">-선택-</option>
 							<option value="ma">남자</option>
 							<option value="fe">여자</option>
 						</select>
@@ -138,7 +232,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">이메일 주소</font>
 					</td>
 					
@@ -150,7 +244,7 @@ function sample6_execDaumPostcode() {
 				
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">메일 수신 여부</font>
 					</td>
 					
@@ -163,7 +257,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">집전화</font>
 					</td>
 					
@@ -173,7 +267,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">우편번호</font>
 					</td>
 					<td>
@@ -183,14 +277,14 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr> 
-					<td>주소</td>
+					<td bgcolor="#f5f5f5">주소</td>
 					<td><input type="text" name="memberAddr1" id="sample6_address" size="70"><br>
 						<input type="text" name="memberAddr2" id="sample6_detailAddress" size="70">
 					</td>
 				</tr>
 						
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">휴대폰</font>
 					</td>
 					
@@ -200,7 +294,7 @@ function sample6_execDaumPostcode() {
 				</tr>
 				
 				<tr>
-					<td>
+					<td bgcolor="#f5f5f5">
 						<font size="2">휴대폰 수신여부</font>
 					</td>
 					
@@ -217,7 +311,7 @@ function sample6_execDaumPostcode() {
 			<table width="80%">
 				<tr>
 					<td align='cetner'>
-						<br><input type="submit" value="확인">&nbsp;
+						<br><input type="button" value="확인" onclick="return check();">&nbsp;
 							<input type="reset" value="다시작성">
 					</td>
 				</tr>
